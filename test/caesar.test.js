@@ -21,9 +21,13 @@ describe("mariah's tests for caesar shift", () => {
 
   // Section for encoding tests
   describe("encoding", () => {
-    it("first test", () => {
-      //Write test here
-      expect(something).to.be.something;
+    it("encode a message by shifting letters", () => {
+      const message = "zebra magazine"
+      const shift = 3
+      const encode = true
+      const actual =caesar(message, shift, encode)
+      const expected = ""
+      expect(actual).to.be.a(expected);
     });
 
     it("second test", () => {
