@@ -16,14 +16,16 @@ const caesarModule = (function () {
     const lowerCaseInput = input.toLowerCase();
     const splitInput = lowerCaseInput.split(""); //have new array
     // console.log(splitInput)
+    //loops through new array
     const mappedArray = splitInput.map((letter) => {
       if (!lookup.includes(letter)) {
         return letter;
       }
-      const indexOfInput = lookup.indexOf(letter); //returns num
+      const indexOfInput = lookup.indexOf(letter); //returns number
       // console.log(indexOfInput)
-      const shiftedIndex = indexOfInput + shift; //returns num
-      // console.log(lookup[Math.abs(shiftedIndex % lookup.length)]);
+      const shiftedIndex = indexOfInput + shift; //returns number+shift
+      // console.log(lookup[(shiftedIndex + lookup.length) % lookup.length]);
+      //makes sure we are do not throw an out of bounds error
       return lookup[(shiftedIndex + lookup.length) % lookup.length]; //returns a letter
     });
     return mappedArray.join(""); //returns string encoded/decoded message

@@ -20,30 +20,95 @@ describe("mariah's tests for caesar shift", () => {
   });
 
   // Section for encoding tests
-  describe("encoding", () => {
+  describe("mariah's encoding", () => {
     it("encode a message by shifting letters", () => {
-      const message = "zebra magazine"
-      const shift = 3
-      const encode = true
-      const actual =caesar(message, shift, encode)
-      const expected = ""
-      expect(actual).to.be.a(expected);
+      const message = "booboo";
+      const shift = 3;
+      const encode = true;
+      const actual = caesar(message, shift, encode);
+      const expected = "errerr";
+      expect(actual).to.equal(expected);
     });
 
-    it("second test", () => {
-      //Write test here
-      expect(something).to.be.something;
+    it("keep spaces and symbols in output", () => {
+      const message = "bo cho.";
+      const shift = 3;
+      const encode = true;
+      const actual = caesar(message, shift, encode);
+      const expected = "er fkr.";
+      expect(actual).to.equal(expected);
+    });
+    it("disregard capitol letters", () => {
+      const message = "Mariah";
+      const shift = 3;
+      const encode = true;
+      const actual = caesar(message, shift, encode);
+      const expected = "pduldk";
+      expect(actual).to.equal(expected);
+    });
+    it("when reaching the end of the alphabet, should wrap around the other side", () => {
+      const message = "zebra";
+      const shift = 3;
+      const encode = true;
+      const actual = caesar(message, shift, encode);
+      const expected = "cheud";
+      expect(actual).to.equal(expected);
+    });
+    it("will allow negative shift that will go left", () => {
+      const message = "Mar";
+      const shift = -3;
+      const encode = true;
+      const actual = caesar(message, shift, encode);
+      const expected = "jxo";
+      expect(actual).to.equal(expected);
     });
   });
 
   // Section for Decoding Tests
-  describe("decoding", () => {
-    it("first test", () => {
-      expect(something).to.be.something;
+  describe("mariah's decoding", () => {
+    it("shifting letter in the other direction", () => {
+      const message = "jxo";
+      const shift = -3;
+      const encode = false;
+      const actual = caesar(message, shift, encode);
+      const expected = "mar";
+      expect(actual).to.equal(expected);
     });
 
-    it("second test", () => {
-      expect(something).to.be.something;
+    it("leave spaces and other symbols alone they didn't hurt anybody", () => {
+      const message = "jxo jxo.";
+      const shift = -3;
+      const encode = false;
+      const actual = caesar(message, shift, encode);
+      const expected = "mar mar.";
+      expect(actual).to.equal(expected);
+    });
+
+    it("ignore capitol letters", () => {
+      const message = "Jxo";
+      const shift = -3;
+      const encode = false;
+      const actual = caesar(message, shift, encode);
+      const expected = "mar";
+      expect(actual).to.equal(expected);
+    });
+
+    it("when reaching the end of the alphabet, should wrap around the other side", () => {
+      const message = "z";
+      const shift = -3;
+      const encode = false;
+      const actual = caesar(message, shift, encode);
+      const expected = "c";
+      expect(actual).to.equal(expected);
+    });
+
+    it("will allow negative shift that will go left", () => {
+      const message = "Mar";
+      const shift = -3;
+      const encode = true;
+      const actual = caesar(message, shift, encode);
+      const expected = "jxo";
+      expect(actual).to.equal(expected);
     });
   });
 });
