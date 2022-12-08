@@ -1,6 +1,6 @@
 // Write your tests here!
 const { expect } = require("chai");
-const caesarModule = require("../src/caesar"); //imported caesar function
+const { caesar } = require("../src/caesar"); //imported caesar function
 // All tests
 describe("mariah's tests for caesar shift", () => {
   // Section for shift error tests
