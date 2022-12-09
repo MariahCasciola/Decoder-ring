@@ -5,6 +5,20 @@ const { caesar } = require("../src/caesar"); //imported caesar function
 describe("mariah's tests for caesar shift", () => {
   // Section for shift error tests
   describe("errors for shift", () => {
+    
+    it("if we get a shift amount above 25, return false", () => {
+      const message = "boo boo";
+      const shift = 26;
+      const actual = caesar(message, shift);
+      expect(actual).to.be.false;
+    });
+     it("if we get a shift amount below -25, return false", () => {
+       const message = "boo boo";
+       const shift = -26;
+       const actual = caesar(message, shift);
+       expect(actual).to.be.false;
+     });
+
     it("if we get a shift value of zero, we should return false", () => {
       const message = "boo boo";
       const shift = 0;
