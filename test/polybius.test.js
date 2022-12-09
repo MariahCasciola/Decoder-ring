@@ -3,9 +3,9 @@
 const { expect } = require("chai");
 const { polybius } = require("../src/polybius"); //imported polybius function
 
-describe("mariah's tests for polybius", () => {
+describe("tests for polybius written by Mariah", () => {
 
-  describe("mariah's encoding", () => {
+  describe("encoding written by Mariah", () => {
     it("translate each letter into a 2 digit number coordinate", () => {
       const message = "boo";
       const actual = polybius(message);
@@ -26,7 +26,7 @@ describe("mariah's tests for polybius", () => {
     });
   });
 
-  describe("mariah's decoding", () => {
+  describe("decoding written by Mariah", () => {
     it("every pair of numbers should be translated into a letter", () => {
       const message = "214343";
       const actual = polybius(message, false);
@@ -34,14 +34,14 @@ describe("mariah's tests for polybius", () => {
       expect(actual).to.equal(expected);
     });
 
-    it("42 should decode to i and j", () => {
+    it("42 should decode to 'i' and 'j' ", () => {
       const message = "214222 425422";
       const actual = polybius(message, false);
       const expected = "b(i/j)g (i/j)ug";
       expect(actual).to.equal(expected);
     });
 
-    it("leaves spaces alone they didn't do anything wrong", () => {
+    it("leave spaces alone they didn't do anything wrong", () => {
       const message = "214343 214343";
       const actual = polybius(message, false);
       const expected = "boo boo";
